@@ -1,15 +1,4 @@
 # Xamarin.Android
-- task: AppCenterTest@1
-  inputs:
-    appFile: 'Appium/iOS/UITestDemo.ipa'
-    artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
-    frameworkOption: 'appium'
-    appiumBuildDirectory: 'Appium/iOS/Maven/src/test/java/com/microsoft/altframeworktraining/StartIOSAppTest.java'
-    credentialsOption: 'serviceEndpoint'
-    localeOption: 'en_US'
-# Build a Xamarin.Android project.
-# Add steps that test, sign, and distribute an app, save build artifacts, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/xamarin
 
 trigger:
 - master
@@ -33,3 +22,14 @@ steps:
     projectFile: '**/*droid*.csproj'
     outputDirectory: '$(outputDirectory)'
     configuration: '$(buildConfiguration)'
+- task: AppCenterTest@1
+  inputs:
+    appFile: 'Appium/iOS/UITestDemo.ipa'
+    artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
+    frameworkOption: 'appium'
+    appiumBuildDirectory: 'Appium/iOS/Maven/src/test/java/com/microsoft/altframeworktraining/StartIOSAppTest.java'
+    credentialsOption: 'serviceEndpoint'
+    localeOption: 'en_US'
+# Build a Xamarin.Android project.
+# Add steps that test, sign, and distribute an app, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/xamarin
